@@ -1,22 +1,29 @@
 import { useEffect, useState } from "react";
-import { fetchTests, addTest } from "../api/testApi";
+import { useAuth0 } from "@auth0/auth0-react";
+import { api } from "../api/testApi.js";
 
-export default function TestList() {
-  const [data, setData] = useState([]);
+export const TestList = () => {
+  const { getAccessTokenSilently } = useAuth0();
+
+  const fetchData = async () => {
+    try{
+      const token = await getAccessTokenSilently();
+
+      const res = await api.get("/test", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+
+      console.log("Data fetched:", res.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
 
   useEffect(() => {
-    loadData();
+    fetchData();
   }, []);
-
-  const loadData = async () => {
-    const tests = await fetchTests();
-    setData(tests);
-  };
-
-  const handleAdd = async () => {
-    await addTest({ working: true });
-    loadData(); // refresh list
-  };
 
   return (
     <div>

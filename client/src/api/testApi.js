@@ -1,4 +1,5 @@
 import axios from "axios";
 
-// Use Vite proxy, so just "/api"
-const BASE_URL = "/api/test";
+export const api = axios.create({
+  baseURL: "/api",
+});

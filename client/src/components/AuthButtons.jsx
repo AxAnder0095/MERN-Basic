@@ -1,7 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { SignIn } from "./Signin.jsx";
 import { SignUp } from "./SignUp.jsx";
-import {Logout} from "./Logout.jsx";
 import { Navigate } from "react-router-dom";
 
 export const AuthButtons = () => {
@@ -17,8 +16,6 @@ export const AuthButtons = () => {
         </>
       ) : (
         <>
-          {/* <span>Welcome {user?.name}</span> */}
-          {/* <Logout /> */}
           <Navigate to="/dashboard" />
         </>
       )}

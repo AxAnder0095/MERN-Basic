@@ -1,0 +1,21 @@
+// $primary: #111111;
+$primary-text: #ffffff;
+
+.dashboard {
+    background-color: #111111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+}
+
+.dashboard-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #FFF;
+    padding: 2rem;
+    width: 100%;
+    max-width: 1024px;
+}

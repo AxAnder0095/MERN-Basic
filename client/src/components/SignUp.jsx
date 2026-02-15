@@ -3,9 +3,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 export const SignUp = () => {
     const { loginWithRedirect } = useAuth0();
 
-    const handleSignUp = () => {
+    const handleSignUp = async () => {
         try {
-            loginWithRedirect({
+            await loginWithRedirect({
                 authorizationParams: {
                     screen_hint: "signup",
                 },
@@ -16,7 +16,7 @@ export const SignUp = () => {
     };
 
     return (
-        <button onClick={handleSignUp}>
+        <button type="button" onClick={handleSignUp}>
             Sign Up
         </button>
     );

@@ -2,12 +2,14 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { SignIn } from "./Signin.jsx";
 import { SignUp } from "./SignUp.jsx";
 import {Logout} from "./Logout.jsx";
+import { Navigate } from "react-router-dom";
 
 export const AuthButtons = () => {
-  const { isAuthenticated, user } = useAuth0();
+  const { isAuthenticated, error } = useAuth0();
 
   return (
     <div>
+      {error && <p>{error.message}</p>}
       {!isAuthenticated ? (
         <>
           <SignIn />
@@ -15,8 +17,9 @@ export const AuthButtons = () => {
         </>
       ) : (
         <>
-          <span>Welcome {user?.name}</span>
-          <Logout />
+          {/* <span>Welcome {user?.name}</span> */}
+          {/* <Logout /> */}
+          <Navigate to="/dashboard" />
         </>
       )}
     </div>

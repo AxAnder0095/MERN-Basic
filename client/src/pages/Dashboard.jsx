@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useItems } from "../hooks/useItems.jsx";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Navbar } from "../components/Navbar.jsx";
+import { BsFillPostcardHeartFill } from "react-icons/bs";
+
 import "../styles/Dashboard.scss";
 
 import worm from "../imgs/wormsquare.jpg";
@@ -65,7 +67,7 @@ export const Dashboard = () => {
           <div className="post-count">
             {items && items.length > 0 ?
               <div>
-                <p className="post-count-title">Total Posts</p>
+                <p className="post-count-title"><BsFillPostcardHeartFill /> Total Posts</p>
                 <p className="post-count-number">{items.length}</p>
               </div> :
               <p>No posts to count.</p>}
@@ -73,7 +75,7 @@ export const Dashboard = () => {
           <div className="fav-image">
             <img src={worm} alt="Worm" className="fav-img" />
           </div>
-          <div className="something"></div>
+          {/* <div className="something"></div> */}
           <div className="calendar"></div>
         </div>
       </div>

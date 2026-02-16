@@ -2,15 +2,16 @@ import { useState } from "react";
 import { useItems } from "../hooks/useItems.jsx";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Navbar } from "../components/Navbar.jsx";
-import { BsFillPostcardHeartFill } from "react-icons/bs";
-
 import "../styles/Dashboard.scss";
-
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 import worm from "../imgs/wormsquare.jpg";
-
+import { BsFillPostcardHeartFill } from "react-icons/bs";
 import { IoCloseCircleSharp } from "react-icons/io5";
+import { IoCalendarSharp } from "react-icons/io5";
 
 export const Dashboard = () => {
+  const [value, onChange] = useState(new Date());
   const [selectedPostId, setSelectedPostId] = useState(null);
   const { items } = useItems();
   useAuth0();
@@ -75,8 +76,10 @@ export const Dashboard = () => {
           <div className="fav-image">
             <img src={worm} alt="Worm" className="fav-img" />
           </div>
-          {/* <div className="something"></div> */}
-          <div className="calendar"></div>
+          <div className="calendar">
+            <div className="calendar-title"><IoCalendarSharp /> <p>Calendar</p></div>
+            <Calendar onChange={onChange} value={value} />
+          </div>
         </div>
       </div>
     </div>

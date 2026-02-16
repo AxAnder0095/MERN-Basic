@@ -21,13 +21,14 @@ export function useItems() {
                 },
             });
 
-            setItems(res.data);
+            const reversedItems = res.data.slice().reverse(); // Reverse the order of items
+            setItems(reversedItems);
         }catch (error) {
             console.error("Error fetching items:", error);
         }
     };
 
-    const postItem = async () => {
+    const postItem = async (item) => {
         const token = await getAccessTokenSilently({
             authorizationParams: {
                 audience: import.meta.env.VITE_AUTH0_AUDIENCE,
@@ -36,12 +37,15 @@ export function useItems() {
 
         await api.post(
             "/test",
-            { working: true },
+            {
+                ...item,
+                date: Date.now(),
+            },
             {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
-            }
+            },
         );
 
         fetchItems();

@@ -3,7 +3,8 @@ import { Logout } from "../components/Logout.jsx";
 import "../styles/Navbar.scss";
 import { MdDashboard } from "react-icons/md";
 import { FiBookOpen } from "react-icons/fi";
-import { CiSettings } from "react-icons/ci";
+// import { CiSettings } from "react-icons/ci";
+import penguin from "../imgs/penguin.jpg";
 
 
 
@@ -14,7 +15,7 @@ export const Navbar = () => {
             <div className="nav-intro">
                 <p className="nav-title">LifeBook</p>
                 <div className="nav-image">
-                    <p>image goes here</p>
+                    <img src={penguin} alt="Penguin" className="pfp"/>
                 </div>
             </div>
             <div className="nav-links">
@@ -24,9 +25,6 @@ export const Navbar = () => {
                 <NavLink
                     to="/entry"
                     className={({isActive}) => isActive ? 'link active' : 'link'}><FiBookOpen /> Entry</NavLink>
-                <NavLink
-                    to="/settings"
-                    className={({isActive}) => isActive ? 'link active' : 'link'}><CiSettings /> Settings</NavLink>
             </div>
             <div className="nav-logout">
                 <Logout />

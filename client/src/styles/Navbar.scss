@@ -23,6 +23,12 @@
             align-items: center;
             overflow: hidden;
             margin-top: 3rem;
+
+            .pfp {
+                width: 180px;
+                height: 180px;
+                object-fit: cover;
+            }
         }
     }
 

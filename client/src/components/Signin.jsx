@@ -1,4 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import "../styles/Sign.scss"
 
 export const SignIn = () => {
   const { loginWithRedirect } = useAuth0();
@@ -12,7 +13,7 @@ export const SignIn = () => {
   };
 
   return (
-    <button type="button" onClick={handleSignIn}>
+    <button type="button" onClick={handleSignIn} className="sign-btn">
       Sign In
     </button>
   );

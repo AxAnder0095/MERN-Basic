@@ -1,0 +1,38 @@
+$text-primary: #ffffff;
+$bg-primary: #00b938;
+
+.splash-page {
+    color: $text-primary;
+    min-height: 100vh;
+    background-color: #111111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash-content {
+    background: linear-gradient(180deg, #003f79, #007965);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem 2rem;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 1rem;
+}
+
+.splash-title {
+    font-size: 3rem;
+}
+
+.splash-sub-title {
+    font-size: 1.2rem;
+    color: rgba($color:$text-primary, $alpha: 0.7);
+    // margin-bottom: 2rem;
+}
+
+.splash-icon {
+    margin: 2rem 0;
+}
